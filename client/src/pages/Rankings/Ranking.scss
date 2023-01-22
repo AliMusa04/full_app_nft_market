@@ -1,0 +1,200 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+section {
+  background-color: rgba(43, 43, 43, 1);
+}
+.rankings_content_contanier {
+  width: 1050px;
+  margin: 0 auto;
+
+  .rankings_content_table {
+    width: 100%;
+    padding: 40px 0px;
+    .rankings_content_table_head {
+      display: flex;
+      padding: 12px 0px;
+      padding-left: 20px;
+      border: 1px solid #3b3b3b;
+      border-radius: 20px;
+      .rankings_content_table_head_left {
+        width: 43%;
+        display: flex;
+        gap: 20px;
+        p {
+          font-family: "Space Mono", monospace;
+          color: rgba(133, 133, 132, 1);
+          margin: 0 !important;
+        }
+      }
+      .rankings_content_table_head_right {
+        width: 57%;
+        display: flex;
+        p {
+          width: 35%;
+          font-family: "Space Mono", monospace;
+          color: rgba(133, 133, 132, 1);
+          margin: 0 !important;
+        }
+      }
+    }
+    .rankings_content_table_body {
+      width: 100%;
+      padding-top: 20px;
+
+      .rankings_content_table_body_artist {
+        width: 110%;
+        height: 84px;
+        margin-bottom: 10px;
+        padding: 12px 15px;
+        padding-left: 15px;
+        border: 1px solid #3b3b3b;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        background-color: rgba(59, 59, 59, 1);
+        .rankings_content_table_body_artist_left {
+          display: flex;
+          align-items: center !important;
+          width: 41%;
+          gap: 20px;
+          span {
+            background-color: rgba(43, 43, 43, 1);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(133, 133, 132, 1);
+          }
+          .rankings_content_table_body_artist_left_pics_name {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            img {
+              width: 60px;
+            }
+            h3 {
+              font-family: "Work sans";
+              font-weight: 600;
+              font-size: 22px;
+              line-height: 140%;
+              color: white;
+              margin: 0 !important;
+            }
+          }
+        }
+        .rankings_content_table_body_artist_right {
+          display: flex;
+          align-items: center !important;
+          width: 57%;
+          p {
+            width: 35%;
+            margin: 0 !important;
+
+            font-family: "Space Mono", monospace;
+            color: rgba(133, 133, 132, 1);
+          }
+        }
+      }
+    }
+  }
+  .rankings_content_title {
+    color: white;
+    font-family: "Work sans";
+    h2 {
+      font-weight: 600;
+      line-height: 56.1px;
+      font-size: 51px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-weight: 400;
+      font-size: 22px;
+    }
+  }
+  .rankings_content_time {
+    .rankings_content_time_desktop {
+      ul {
+        display: flex;
+        list-style-type: none;
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 140%;
+        li {
+          padding: 15px 30px 15px 30px;
+          width: 262px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #858584;
+          cursor: pointer;
+        }
+      }
+    }
+    .rankings_content_time_phone {
+      width: 315px;
+      display: none;
+      ul {
+        display: flex;
+        list-style-type: none;
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 140%;
+
+        li {
+          padding: 15px 20px 15px 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #858584;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.active {
+  border-bottom: 1px solid white;
+  color: white !important;
+}
+
+.rankings_form {
+  form {
+    input {
+      margin: 30px;
+    }
+  }
+}
+
+.modal_background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+
+  .modal_div {
+    display: none;
+    width: 600px;
+    background-color: white;
+    position: fixed;
+    top: 20px;
+  }
+}
+.button_add_nft {
+  display: none;
+  width: 100px;
+  border: none;
+  padding: 2px 5px;
+}

@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}
+@mixin for-size($size) {
+  @if $size == phone {
+    @media screen and (max-width: map-get($screen-size, "sm")) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media screen and (max-width: map-get($screen-size, "md")) {
+      @content;
+    }
+  }
+}
+$screen-size: (
+  "sm": 830px,
+  "md": 1280px,
+);
+
+header {
+  background-color: rgb(153, 0, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px 20px 50px;
+  background-color: rgba(43, 43, 43, 1);
+  .navbar_logo {
+    img {
+      cursor: pointer;
+    }
+  }
+  .navbar_links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    button {
+      width: 152px;
+      height: 60px;
+      padding: 0px 30px 0px 30px;
+      gap: 12px;
+      background-color: rgba(162, 89, 255, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 20px;
+      line-height: 22.4px;
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: 0.4s;
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
+    .navbar_link_route {
+      ul {
+        display: flex;
+        gap: 10px;
+        list-style-type: none;
+        margin: 0 !important;
+        li {
+          padding: 0px 20px 0px 20px;
+          font-family: "Work Sans", sans-serif;
+          line-height: 22.4px;
+          font-weight: 600;
+          font-size: 16px;
+          transition: 0.4s;
+          &:hover {
+            transform: scale(0.95);
+          }
+          a {
+            text-decoration: none;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+.navbar_tablet_menu {
+  display: none;
+}
+@include for-size(tablet) {
+  .navbar_links {
+    display: none !important;
+  }
+  .navbar_logo {
+    img {
+      width: 182px;
+    }
+  }
+  .navbar_tablet_menu {
+    display: block;
+  }
+}

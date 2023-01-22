@@ -1,0 +1,70 @@
+.formik_artist {
+}
+.add_page_background {
+  background-color: rgba(43, 43, 43, 1);
+}
+.add_page_contanier {
+  width: 700px;
+  margin: 0 auto;
+  padding: 10px 0px;
+  padding-bottom: 20px;
+  h2 {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 61px;
+    line-height: 110%;
+    color: white;
+    text-align: center;
+  }
+
+  .formik_artist_div {
+    margin-top: 25px;
+    .formik_artist {
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+
+      input {
+        margin-top: 15px;
+        padding: 15px 30px;
+        border-radius: 20px;
+        outline: none;
+        border: none;
+        font-size: 17px;
+      }
+      span {
+        color: red;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+      button {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 20px !important;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        background-color: #b5e5cf;
+        color: #3d5b59;
+        font-size: 20px;
+        font-weight: 500;
+        transition: 0.3s;
+        &:hover {
+          background-color: #3d5b59;
+          color: #b5e5cf;
+          font-weight: 800;
+          border: 1px solid #b5e5cf;
+        }
+      }
+    }
+  }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

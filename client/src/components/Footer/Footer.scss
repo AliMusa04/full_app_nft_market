@@ -1,0 +1,207 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+footer {
+  background-color: rgba(59, 59, 59, 1);
+  padding: 40px 0px;
+  .footer_contanier {
+    width: 1049.41px;
+    margin: 0 auto;
+    .footer_contanier_company {
+      margin-top: 30px;
+      height: 33px;
+      display: flex;
+      align-items: flex-end;
+      border-top: 1px solid rgb(99, 97, 97);
+      p {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 13.2px;
+        color: white;
+        margin: 0;
+      }
+    }
+    .footer_contanier_links {
+      display: flex;
+      justify-content: space-between;
+      .footer_contanier_links_marketPlace {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 327.41px;
+        height: 191px;
+        .footer_contanier_links_marketPlace_contact {
+          width: 236px;
+          h3 {
+            margin-bottom: 20px;
+            line-height: 22.4px;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(204, 204, 204, 1);
+          }
+          .footer_contanier_links_marketPlace_contact_bottom {
+            h4 {
+              margin-bottom: 15px;
+              line-height: 22.4px;
+              font-weight: 400;
+              font-size: 16px;
+              color: rgba(204, 204, 204, 1);
+            }
+            svg {
+              font-size: 32px;
+              margin-right: 10px;
+              color: rgba(204, 204, 204, 1);
+            }
+          }
+        }
+        img {
+          width: 243.41px;
+          height: 32px;
+        }
+      }
+      .footer_contanier_explore {
+        width: 240px;
+        h5 {
+          margin-bottom: 25px;
+          line-height: 35.2px;
+          font-size: 22px;
+          font-weight: 700;
+          font-family: "Space Mono";
+          color: white;
+        }
+        ul {
+          li {
+            list-style-type: none;
+            margin-bottom: 20px;
+            color: rgba(204, 204, 204, 1);
+            a {
+              text-decoration: none;
+              color: white;
+            }
+          }
+        }
+      }
+      .footer_contanier_input {
+        width: 420px;
+        h5 {
+          line-height: 35.2px;
+          font-size: 22px;
+          font-weight: 700;
+          font-family: "Space Mono";
+          color: white;
+          margin-bottom: 25px;
+        }
+        .footer_contanier_input_text {
+          p {
+            width: 330px;
+            line-height: 22.4px;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: rgba(204, 204, 204, 1);
+          }
+          .footer_contanier_input_text_button {
+            position: relative;
+            input {
+              width: 100%;
+              height: 60px;
+              border-radius: 20px;
+              padding: 16px 0px 16px 20px;
+              color: rgba(0, 0, 0, 0.5);
+              outline: none;
+              font-size: 18px;
+            }
+            button {
+              position: absolute;
+              top: 0px;
+              right: -2px;
+              width: 179px;
+              height: 60px;
+              padding: 0px 30px 0px 30px;
+              gap: 12px;
+              background-color: rgba(162, 89, 255, 1);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: none;
+              border-radius: 20px;
+              line-height: 22.4px;
+              font-weight: 600;
+              font-size: 16px;
+              color: white;
+              cursor: pointer;
+              transition: 0.4s;
+              &:hover {
+                transform: scale(0.9);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.footer_input_forPhone {
+  display: none;
+  flex-direction: column;
+  width: 315px;
+  gap: 16px;
+  font-family: "Work sans";
+
+  input {
+    width: 100%;
+    height: 46px;
+    padding: 16px 20px 16px 20px;
+    border: 1px solid #858584;
+    border-radius: 20px;
+  }
+  button {
+    background: #a259ff;
+    border-radius: 20px;
+    padding: 0px 50px;
+    height: 46px;
+    border: none;
+    gap: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Work sans";
+  }
+}
+// TABLET
+@media screen and (max-width: 1280px) {
+  .footer_contanier {
+    width: 690px !important;
+  }
+  .footer_contanier_links {
+    display: block !important;
+  }
+}
+
+//PHONE
+@media screen and (max-width: 830px) {
+  .footer_contanier {
+    width: 315px !important;
+  }
+  .footer_contanier_input_text_button {
+    display: none;
+  }
+  .footer_input_forPhone {
+    display: flex;
+  }
+  .footer_contanier_links_marketPlace {
+    width: 315px;
+  }
+  .footer_contanier_explore {
+    width: 315px;
+  }
+  .footer_contanier_input {
+    width: 315px !important;
+    h5 {
+      width: 100%;
+    }
+  }
+}
