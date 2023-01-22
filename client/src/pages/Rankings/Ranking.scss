@@ -168,28 +168,80 @@ section {
 
 .rankings_form {
   form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
     input {
-      margin: 30px;
+      margin-top: 15px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      font-size: 17px;
+      background-color: #3b3b3b;
+      color: white;
+    }
+    span {
+      color: red;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+    button {
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 20px !important;
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      border: none;
+      outline: none;
+      border-radius: 20px;
+      background-color: #b5e5cf;
+      color: #3d5b59;
+      font-size: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+      &:hover {
+        background-color: #3d5b59;
+        color: #b5e5cf;
+        font-weight: 800;
+      }
     }
   }
 }
+.ant-modal-title {
+  font-size: 25px !important;
+  text-align: center;
+}
 
-.modal_background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0);
-  display: flex;
-  justify-content: center;
-
-  .modal_div {
-    display: none;
-    width: 600px;
-    background-color: white;
-    position: fixed;
-    top: 20px;
+.ant-modal-footer {
+  display: none;
+}
+.ant-modal-wrap {
+  background: rgb(34, 121, 9);
+  background: linear-gradient(
+    90deg,
+    rgba(34, 121, 9, 1) 0%,
+    rgba(123, 119, 194, 1) 0%,
+    rgba(102, 240, 139, 1) 82%,
+    rgba(9, 210, 246, 1) 95%,
+    rgba(18, 207, 236, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+.rankings_content_table_body_artist {
+  button {
+    background-color: rgb(240, 240, 240);
+    outline: none;
+    border: none;
+    color: black;
+    font-weight: 600;
+    &:hover {
+      background-color: yellowgreen !important;
+    }
   }
 }
 .button_add_nft {
@@ -197,4 +249,126 @@ section {
   width: 100px;
   border: none;
   padding: 2px 5px;
+}
+.responsiv_for_padding {
+  padding: 80px 0px;
+}
+
+@media screen and (max-width: 1280px) {
+  .responsiv_for_padding {
+    padding: 40px 0px;
+  }
+  .rankings_content_table_body_artist {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+  .rankings_content_table_body_artist_left_pics_name {
+    h3 {
+      font-size: 20px !important;
+    }
+    img {
+      width: 24px !important;
+    }
+  }
+  .rankings_content_contanier {
+    width: 690px;
+    .rankings_content_time_desktop {
+      ul {
+        li {
+          font-size: 16px;
+        }
+      }
+    }
+    .rankings_content_table_head_right {
+      text-align: start;
+    }
+
+    .responsiv_forTable {
+      display: none;
+    }
+    .rankings_content_title {
+      h2 {
+        font-size: 38px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .responsiv_for_padding {
+    padding: 30px 0px;
+  }
+  .rankings_content_table_head_right {
+    display: flex;
+    justify-content: center;
+  }
+  .rankings_content_time_desktop {
+    display: none;
+  }
+  .responsiv_forPhone {
+    display: none;
+  }
+  .responsiv_forPhoneBack {
+    background-color: rgba(59, 59, 59, 1) !important;
+  }
+  .rankings_content_time_phone {
+    display: flex !important;
+  }
+  .rankings_content_table_body_artist {
+    width: 110% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    button {
+      width: 60px;
+      font-size: 7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .rankings_content_table_body_artist_right {
+    display: flex;
+    justify-content: flex-end;
+    p {
+      font-size: 12px;
+      margin-right: 3px;
+    }
+  }
+  .rankings_content_table_body_artist_left_pics_name {
+    h3 {
+      font-size: 16px !important;
+    }
+    img {
+      width: 24px !important;
+    }
+  }
+  .rankings_content_contanier {
+    width: 315px;
+    .rankings_content_time_desktop {
+      ul {
+        li {
+          font-size: 16px;
+        }
+      }
+    }
+    .rankings_content_table_head_right {
+      text-align: start;
+    }
+
+    .responsiv_forTable {
+      display: none;
+    }
+    .rankings_content_title {
+      h2 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
 }

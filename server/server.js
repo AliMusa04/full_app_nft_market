@@ -10,6 +10,8 @@ const PORT = 8080;
 
 let rank = 13;
 
+let NFTimg =
+  "https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/image-placeholder-67@2x.png";
 let img =
   "https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/avatar-placeholder-129@2x.png";
 
@@ -29,7 +31,7 @@ const ArtistSchema = new mongoose.Schema({
 });
 
 const NFTschema = new mongoose.Schema({
-  img: String,
+  NFTimg: String,
   title: String,
   price: Number,
   Hbid: Number,
@@ -63,7 +65,6 @@ const AddArtisSchema = Joi.object({
 });
 
 const AddNFtSchema = Joi.object({
-  img: Joi.string().required(),
   title: Joi.string().required(),
   price: Joi.number().required(),
   Hbid: Joi.number().required(),
@@ -160,36 +161,26 @@ app.post(
       res.status(422).send({ error: message });
     }
   },
+
   async (req, res) => {
     let newNFT = new NFTmodel({
       ...req.body,
+      NFTimg,
       artist: req.params.userId,
     });
-    await newNFT
-      .save()
-      .then(() =>
-        res.status(200).send({ message: "NFT created succsesfully", newNFT })
-      );
+    await newNFT.save();
 
-    // nftId = NFTmodel.findOne({ title: req.body.title }, (error, nft) => {
-    //   if (error) return res.status(500), send({ error });
-
-    //   res.status(200).send(nft._id);
-    // }),
-
-    ArtistModel.findByIdAndUpdate(
-      req.params.userId,
-      {
-        $push: {
-          nft: ajksjdk,
-        },
+    await ArtistModel.findByIdAndUpdate(req.params.userId, {
+      $push: {
+        nft: newNFT._id,
       },
-      (error, data) => {
-        if (error) return res.status(500).send({ error });
+    });
+    res.send({ message: "NFT created succefully !", newNFT });
+  },
+  (error, data) => {
+    if (error) return res.status(500).send({ error });
 
-        res.send(data);
-      }
-    );
+    res.send(data);
   }
 );
 

@@ -68,3 +68,26 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+@media screen and (max-width: 1280px) {
+  .add_page_contanier {
+    width: 460px;
+    h2 {
+      font-size: 40px;
+    }
+    .formik_artist {
+      width: 360px !important;
+    }
+  }
+}
+@media screen and (max-width: 830px) {
+  .add_page_contanier {
+    width: 315px;
+    h2 {
+      font-size: 28px;
+    }
+    .formik_artist {
+      width: 215px !important;
+    }
+  }
+}

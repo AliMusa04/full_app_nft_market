@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./MarketPlace.scss";
 import { FiSearch } from "react-icons/fi";
+import axios from "axios";
 
 const MarketPlace = () => {
+  const [data, setData] = useState([]);
+
+  const [input, setInput] = useState("");
+
+  const [active, setActive] = useState(true);
+
+  const [noActive, setNoActive] = useState(false);
+
+  console.log(input);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/marketplace")
+      .then((res) => setData(res.data));
+  }, []);
   return (
     <>
       <div className="divFor_responsiv">
@@ -14,7 +29,11 @@ const MarketPlace = () => {
                 <p>Browse through more than 50k NFTs on the NFT Marketplace.</p>
               </div>
               <div className="marketplace_search_input">
-                <input type="text" placeholder="Search your favourite NFTs" />
+                <input
+                  type="text"
+                  placeholder="Search your favourite NFTs"
+                  onChange={(e) => setInput(e.target.value)}
+                />
                 <FiSearch />
               </div>
             </div>
@@ -26,11 +45,21 @@ const MarketPlace = () => {
         <div className="marketplace_contanier">
           <div className="marketplace_nft_count">
             <ul>
-              <li className="activeMarket">
-                NFTs <span>302</span>
+              <li
+                onClick={() => {
+                  setActive(true);
+                  setNoActive(false);
+                }}
+                className={active ? "activeMarket" : null}>
+                NFTs <span>{data.length}</span>
               </li>
-              <li>
-                Collections <span>67</span>
+              <li
+                onClick={() => {
+                  setActive(false);
+                  setNoActive(true);
+                }}
+                className={noActive ? "activeMarket" : null}>
+                Collections <span>{data.length}</span>
               </li>
             </ul>
           </div>
@@ -42,40 +71,45 @@ const MarketPlace = () => {
           <div
             className="marketplace_nfts_div"
             style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
-            <div className="card_div">
-              <div className="card_div_img">
-                <img
-                  src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/image-placeholder@2x.png"
-                  alt=""
-                />
-              </div>
-              <div className="card_div_content">
-                <div className="card_div_content_head">
-                  <h2>Magic Mushroom 0325</h2>
-                  <div className="card_div_content_head_artist">
-                    <img
-                      src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/avatar-placeholder-5@2x.png"
-                      alt=""
-                    />
-                    <p>Shroomie</p>
-                  </div>
-                </div>
-                <div className="card_div_content_body">
-                  <div>
-                    <p>Price</p>
-                    <h3>
-                      <span>0.33</span>ETH
-                    </h3>
-                  </div>
-                  <div style={{ textAlign: "right" }}>
-                    <p>Highest Bid</p>
-                    <h3>
-                      <span>1.63</span> wETH
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {data &&
+              data
+                .filter((nft) => {
+                  if (nft.title.toLowerCase().includes(input.toLowerCase())) {
+                    return nft;
+                  }
+                })
+                .map((nft) => {
+                  return (
+                    <div key={nft._id} className="card_div">
+                      <div className="card_div_img">
+                        <img src={`${nft.NFTimg}`} alt="" />
+                      </div>
+                      <div className="card_div_content">
+                        <div className="card_div_content_head">
+                          <h2>{nft.title}</h2>
+                          <div className="card_div_content_head_artist">
+                            <img src={`${nft.artist.img}`} alt="" />
+                            <p>{nft.artist.name}</p>
+                          </div>
+                        </div>
+                        <div className="card_div_content_body">
+                          <div>
+                            <p>Price</p>
+                            <h3>
+                              <span>{nft.price}</span>ETH
+                            </h3>
+                          </div>
+                          <div style={{ textAlign: "right" }}>
+                            <p>Highest Bid</p>
+                            <h3>
+                              <span>{nft.Hbid}</span> wETH
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
           </div>
         </div>
       </section>
